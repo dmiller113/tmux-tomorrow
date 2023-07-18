@@ -41,7 +41,7 @@ if_in_array_else() {
 main() {
 	local day_themes=("day" "light" "tomorrow")
 	local modifier_theme_names=("blue" "bright" "eighties")
-	local night_themes=("blue" "bright" "eighties")
+	local night_themes=("blue" "bright" "dark" "eighties" "night")
 	local eighties_themes=("blue" "eighties")
 	local theme
 	theme="$(get_tmux_option "@tomorrow_theme" "night")"
@@ -59,6 +59,7 @@ main() {
 	local theme_path
 	theme_path="${PLUGIN_DIR}tmux-tomorrow/$theme_name"
 
+	echo "$theme"
 	if [ -f $theme_path ]; then
 	  tmux source-file $theme_path
 	fi
